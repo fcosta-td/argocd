@@ -1,0 +1,59 @@
+cluster: cluster-1
+
+image:
+    repository: trinodb/trino
+    tag: 354
+    pullPolicy: IfNotPresent
+    securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+
+health:
+    livenessProbe:
+        initialDelaySeconds: 100
+        periodSeconds: 20
+    readinessProbe:
+        initialDelaySeconds: 100
+        periodSeconds: 20
+
+server:
+    workers: 1
+    node:
+        environment: stg
+        dataDir: /data/trino
+        pluginDir: /usr/lib/trino/plugin
+    log:
+        trino:
+            level: INFO
+    config:
+        path: /etc/trino/
+        http:
+            port: 8081
+        query:
+            maxMemory: 512MB
+            maxMemoryPerNode: 256MB
+            maxTotalMemory: 512MB
+            maxTotalMemoryPerNode: 256MB
+    jvm:
+        maxHeapSize: 512M
+        gcMethod:
+            type: UseG1GC
+            g1:
+                heapRegionSize: 32M
+
+service:
+    type: ClusterIP
+
+resources:
+    limits:
+        cpu: 1.5
+        memory: 1024Mi
+    requests:
+        cpu: 0.5
+        memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kusthelm
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    kustomize:
+      version: v3.8.1
+  source:
+    path: examples/kusthelm/grafana/overlays/stg
+    repoURL: https://github.com/fcosta-td/argocd-demo.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
