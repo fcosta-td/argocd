@@ -2,7 +2,7 @@ cluster: cluster-1
 
 image:
     repository: trinodb/trino
-    tag: 354
+    tag: 355
     pullPolicy: IfNotPresent
     securityContext:
         runAsUser: 1000
