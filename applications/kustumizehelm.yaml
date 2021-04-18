@@ -15,7 +15,7 @@ spec:
       version: v3.9.4
   source:
     path: examples/kusthelm/grafana/overlays/stg
-    repoURL: https://github.com/fcosta-td/argocd-demo.git
+    repoURL: https://github.com/fcosta-td/argocd.git
     targetRevision: main
   syncPolicy:
     automated:

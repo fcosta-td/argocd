@@ -16,7 +16,7 @@ spec:
       valueFiles:
         - "secrets.yaml"
     path: examples/helm/trinodb/cluster_1/stg
-    repoURL: https://github.com/fcosta-td/argocd-demo.git
+    repoURL: https://github.com/fcosta-td/argocd.git
     targetRevision: main
   syncPolicy:
     automated:

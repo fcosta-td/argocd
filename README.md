@@ -8,7 +8,7 @@ https://argoproj.github.io/argo-cd/getting_started/
 - Have a kubeconfig file (default location is ~/.kube/config).
 - helm with [helm-secrets](https://www.google.com) plugin
 - [kustomize](https://github.com/kubernetes-sigs/kustomize)
-- [gpg key](https://github.com/fcosta-td/argocd-demo/tree/main/dockerfile/argocd_demo_gpg.asc) installed
+- [gpg key](https://github.com/fcosta-td/argocd/tree/main/dockerfile/argocd_demo_gpg.asc) installed
 
 ## Index
 * [Install requirements](#install-requirements)
@@ -36,7 +36,7 @@ This is a demonstration of a GitOps pipeline, with several examples:
 ```
 minikube start
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/fcosta-td/argocd-demo/main/CRD/install.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/fcosta-td/argocd/main/CRD/install.yaml
 ```
 
 ### Install argo cli
@@ -107,7 +107,7 @@ Detects multiples services/deployments in the same directory.
 
 You can deploy it with Kubectl
 ```
-kubectl apply -f ~/Documents/git/argocd-demo/applications/simple.yaml
+kubectl apply -f ~/Documents/git/argocd/applications/simple.yaml
 ```
 or you can deploy via argocd cli
 ```
@@ -131,7 +131,7 @@ sops --encrypt --encrypted-regex '^(.*mysql.properties.*)$' secrets.yaml
 
 You can deploy it with Kubectl
 ```
-kubectl apply -f ~/Documents/git/argocd-demo/applications/trinodb_cluster_1.yaml
+kubectl apply -f ~/Documents/git/argocd/applications/trinodb_cluster_1.yaml
 ```
 or you can deploy via argocd cli
 ```
@@ -144,7 +144,7 @@ There is also a wrapper available and a plugin to use encrypted file with sops i
 
 You can deploy it with Kubectl
 ```
-kubectl apply -f ~/Documents/git/argocd-demo/applications/kustomize_nginx.yaml
+kubectl apply -f ~/Documents/git/argocd/applications/kustomize_nginx.yaml
 ```
 or you can deploy via argocd cli
 ```
@@ -155,7 +155,7 @@ or you can deploy via argocd cli
 This example uses a helm chart template combined with kustomize.
 You can deploy it with kubectl
 ```
-kubectl apply -f ~/Documents/git/argocd-demo/applications/kustomizehelm.yaml
+kubectl apply -f ~/Documents/git/argocd/applications/kustomizehelm.yaml
 ```
 
 Create template from helm
@@ -172,5 +172,5 @@ helm template grafana grafana/grafana --output-dir base --namespace default --va
 Using this approach, we only need to deploy just one app directly to our K8s cluster either with kubectl or with terraform, and every deployment file created under applications directory, will automatically be applied to our cluster.
 
 ```
-kubectl apply -f /home/filipecosta/Documents/git/argocd-demo/app_of_apps/app_of_apps.yaml
+kubectl apply -f /home/filipecosta/Documents/git/argocd/app_of_apps/app_of_apps.yaml
 ```

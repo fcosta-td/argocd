@@ -11,7 +11,7 @@ resource "argocd_application" "app-of-apps" {
     project = "default"
 
     source {
-      repo_url        = "https://github.com/fcosta-td/argocd-demo.git"
+      repo_url        = "https://github.com/fcosta-td/argocd.git"
       path            = "applications"
       target_revision = "main"
     }
