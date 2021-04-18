@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kusthelm
+  name: kustomizehelm
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     kustomize:
-      version: v3.8.1
+      version: v3.9.4
   source:
     path: examples/kusthelm/grafana/overlays/stg
     repoURL: https://github.com/fcosta-td/argocd-demo.git
