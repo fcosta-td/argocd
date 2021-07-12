@@ -66,7 +66,7 @@ Configure Port-forward
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 ### Login Using The CLI
-For Argo 1.8, follow these steps:
+For Argo 2.x, follow these steps:
 ```
 Method 1:
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
@@ -156,7 +156,7 @@ or you can deploy via argocd cli
 This example uses a helm chart template combined with kustomize.
 You can deploy it with kubectl
 ```
-kubectl apply -f ~/Documents/git/argocd/applications/kustomizehelm.yaml
+kubectl apply -f ~/Documents/git/argocd/applications/kustoumizehelm.yaml
 ```
 
 Create template from helm
