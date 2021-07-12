@@ -68,7 +68,8 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 ### Login Using The CLI
 For Argo 1.8, follow these steps:
 ```
-kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+Method 1:
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 Using the username admin and the password from above, login to Argo CD's IP or hostname:
 ```
